@@ -1,20 +1,26 @@
 /*write a program whch takes a sentence as input and 
 prints the number of words in the sentence*/
 #include <stdio.h>
-#include <string.h>
+#include <ctype.h>
 
-int main()
-{
-	char str[1000];
-	int i,word_count=1;
-	printf("Write a Sentence below:\n");
-	scanf("%c",&str);
-	for(i=0;i<strlen(str);i++){
-		if(str[i]==' '){
-			word_count++;
-		}
-	}
-	printf("%d\n",word_count);
+int main() {
+    char sentence[1000];
+    int i, wordCount = 0;
+    int inWord = 0;
 
-	return 0;
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+
+    for (i = 0; sentence[i] != '\0'; i++) {
+        if (isspace(sentence[i])) {
+            inWord = 0;
+        } else if (inWord == 0) {
+            inWord = 1;
+            wordCount++;
+        }
+    }
+
+    printf("Number of words in the sentence: %d\n", wordCount);
+
+    return 0;
 }

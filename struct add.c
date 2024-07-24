@@ -1,4 +1,5 @@
-/*Write a program to obj 2 numbers using structure*/
+/*Write a program to obj 2 numbers using structure
+This numbers should be from the user input*/
 #include <stdio.h>
 struct addition{
 	int x,y,z;
@@ -7,9 +8,11 @@ struct addition{
 int main()
 {
 	struct addition obj;
-	obj.y=20;
-	obj.x=50;
+	printf("Enter the first number:");
+	scanf("%d",&obj.x);
+	printf("Enter the second number:");
+	scanf("%d",&obj.y);
 	obj.z=obj.y+obj.x;
-	printf("Add=%d",obj.z);
+	printf("Addition=%d",obj.z);
 	return 0;
 }
